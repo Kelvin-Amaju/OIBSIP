@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!--<div class="calculator">
+        <input type="text" name="" id="display" disabled />
+        <div class="buttons">
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('/')">/</button>
+
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('*')">*</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('-')">-</button>
+
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendValue('+')">+</button>
+
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">X</button>
+
+        </div>
+    </div>-->
+
+    <div class="feature-tabs">
+        <button onclick="switchFeature('calculator')"><i class="fa-solid fa-calculator"></i></button>
+        <button onclick="switchFeature('currency')"><i class="fa-solid fa-coins"></i></button>
+        <button onclick="switchFeature('unit')"><i class="fa-brands fa-gg"></i></button>
+        <button onclick="switchFeature('stock')"><i class="fa-solid fa-money-bill-trend-up"></i></button>
+        <button onclick="switchFeature('crypto')"><i class="fa-brands fa-bitcoin"></i></button>
+    </div>
+      
+      <div id="feature-container">
+        <!-- Default calculator will load here -->
+        <div id="calculator" class="feature active">
+          <input type="text" id="display" disabled />
+          <div class="buttons">
+            <!-- Buttons for calculator -->
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('/')">/</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('*')">*</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('-')">-</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendValue('+')">+</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">DEL</button>
+          </div>
+        </div>
+      
+        <!-- Placeholder for other features -->
+        <div id="currency" class="feature">
+          <h2>Currency Converter</h2>
+          <input type="number" id="currency-amount" placeholder="Enter amount" />
+          <select id="currency-from"></select>
+          <select id="currency-to"></select>
+          <button onclick="convertCurrency()">Convert</button>
+          <p id="currency-result"></p>
+        </div>
+      
+        <div id="unit" class="feature">
+          <h2>Unit Converter</h2>
+          <input type="number" id="unit-value" placeholder="Enter value" />
+          <select id="unit-type">
+            <option value="length">Length</option>
+            <option value="weight">Weight</option>
+            <option value="temperature">Temperature</option>
+          </select>
+          <button onclick="convertUnit()">Convert</button>
+          <p id="unit-result"></p>
+        </div>
+      
+        <div id="stock" class="feature">
+          <h2>Stock Calculator</h2>
+          <input type="text" id="stock-symbol" placeholder="Enter stock symbol" />
+          <button onclick="getStockPrice()">Get Price</button>
+          <p id="stock-result"></p>
+        </div>
+      
+        <div id="crypto" class="feature">
+          <h2>Crypto Converter</h2>
+          <input type="number" id="crypto-amount" placeholder="Enter amount" />
+          <select id="crypto-from"></select>
+          <select id="crypto-to"></select>
+          <button onclick="convertCrypto()">Convert</button>
+          <p id="crypto-result"></p>
+        </div>
+      </div>
+
+      <div id="install-banner" style="display: none; text-align: center; padding: 10px; background: #007bff; color: white;">
+        <p>Install this app for easy access!</p>
+        <button id="install-button" style="padding: 10px 20px; background: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer;">
+          Install
+        </button>
+      </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

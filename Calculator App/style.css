@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: #222;
+}
+
+#feature-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    width: 300px;
+    background: #222;
+    color: #fff;
+    border-radius: 10px;
+    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    padding: 20px;
+}
+
+#currency {
+    width: 300px;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+#currency-amount {
+    background: #222;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #222;
+    color: #fff;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+    text-align: right;
+    font-size: 1.5em;
+    /*border: 1px solid #ddd;*/
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.feature-tabs {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+  }
+  
+  .feature-tabs button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .feature-tabs button:hover {
+    background: #0056b3;
+  }
+  
+  .feature {
+    display: none;
+  }
+  
+  .feature.active {
+    display: block;
+  }
+
+  #install-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  #install-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #install-button:hover {
+    background-color: #003f8c;
+  }
