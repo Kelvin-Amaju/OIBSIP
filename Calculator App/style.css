@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,37 +18,42 @@ body {
 
 #feature-container {
     display: flex;
+    top: 0;
     justify-content: center;
     align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+    padding-bottom: 50px;
+    overflow: hidden;
 }
 
 #calculator {
-    width: 300px;
+    width: 100%;
     background: #222;
     color: #fff;
-    border-radius: 10px;
-    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);*/
+    font-weight: 800;
     padding: 20px;
 }
 
 #currency {
-    width: 300px;
+    width: 100%;
+    height: 100vh;
     background: #222;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding-top: 100px;
+}
+
+#currency h2 {
+    color: #fff;
+    text-align: center;
+    
 }
 
 #currency-amount {
-    background: #222;
-    color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-#display {
-    width: 100%;
-    height: 50px;
+    width: 80%;
+    height: 100px;
+    font-weight: 800;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: #222;
     color: #fff;
@@ -50,41 +62,152 @@ body {
     margin-bottom: 10px;
     text-align: right;
     font-size: 1.5em;
-    /*border: 1px solid #ddd;*/
     border-radius: 5px;
     padding: 5px;
 }
 
+.converter {
+    background: #333333;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: #00b7ff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    color: #f8f8f8;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    color: #f8f8f8;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #333;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(247, 107, 28, 0.2);
+    background-color: #222;
+}
+
 .buttons {
+    position: inherit;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 15px;
 }
 
 button {
-    padding: 15px;
-    font-size: 1.2em;
-    border: none;
-    background: #007bff;
+    background: #3d3d3d;
     color: #fff;
-    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
     cursor: pointer;
+    font-size: 1.5em;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+button {
+    border: 5px solid #e8e8e8;
+    box-shadow: 5px 5px 0px #8d8d8d;
+    transition: all 0.3s ease;
 }
 
 button:hover {
     background: #0056b3;
+    /*transform: translateY(-3px);*/
+    
 }
 
+button:active {
+    transform: translateY(4px);
+}
+
+.result {
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f8f8f8;
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#display {
+    width: 100%;
+    height: 100px;
+    font-weight: 800;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: #222;
+    color: #fff;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+    text-align: right;
+    font-size: 1.5em;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#result-in-words {
+    color: #555;
+    text-align: center;
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+
 .feature-tabs {
+    display: none;
     position: fixed;
     top: 0;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+}
 
-  }
-  
-  .feature-tabs button {
+.feature-tabs button {
+    display: none;
     padding: 10px 20px;
     margin: 0 5px;
     background: #007bff;
@@ -92,44 +215,111 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .feature-tabs button:hover {
-    background: #0056b3;
-  }
-  
-  .feature {
-    display: none;
-  }
-  
-  .feature.active {
-    display: block;
-  }
+}
 
-  #install-banner {
+.feature-tabs button:hover {
+    background: #0056b3;
+}
+
+.feature {
+    display: none;
+}
+
+.feature.active {
+    display: block;
+}
+
+.bottom-nav {
+    display: none;
+    
+}
+
+#result-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#result-in-words {
+    font-size: 16px;
+    color: #555;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .bottom-nav {
+        display:flex; 
+        justify-content:space-evenly;
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        background: #222;/*3d3d3d*/
+        padding: 10px;
+    }
+
+    .bottom-nav button {
+        border: 0;
+        box-shadow: none;
+        background: none;
+    }
+
+    .converter {
+        width: 300px;
+        
+    }
+}
+
+@media (min-width: 1024px) {
+    .bottom-nav {
+        display:flex; 
+        flex-direction: column;
+        justify-content:space-evenly;
+        left: 10px;
+        top: 34%;
+        position: fixed;
+        gap: 10px;
+        border-radius:0;
+    }
+}
+
+#install-banner {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
+    top: 0;
+    display: none;
+    width: 30%;
+    height: 25%;
     z-index: 1000;
     text-align: center;
     padding: 15px;
-    background-color: #007bff;
+    background: transparent;
     color: white;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
-  }
-  
-  #install-button {
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    border-radius: 5px;
+}
+
+#install-button {
+    color: #c5c5c5;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #0056b3;
     cursor: pointer;
-  }
-  
-  #install-button:hover {
+    border: 5px solid #e8e8e8;
+    box-shadow: 5px 5px 0px #8d8d8d;
+    transition: all 0.3s ease;
+}
+
+#install-button:hover {
     background-color: #003f8c;
-  }
+    border: 5px #e8e8e8;
+    border-style:double;
+}
+
+#install-button:active {
+    box-shadow: 4px 4px 12px #202020, -4px -4px 12px #3b3b3b;
+    background-color: #b87209;
+    color: #e8e8e8;
+    box-shadow: none;
+    transform: translateY(4px);
+}
