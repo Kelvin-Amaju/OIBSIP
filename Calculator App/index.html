@@ -9,81 +9,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!--<div class="calculator">
-        <input type="text" name="" id="display" disabled />
-        <div class="buttons">
-            <button onclick="appendValue('7')">7</button>
-            <button onclick="appendValue('8')">8</button>
-            <button onclick="appendValue('9')">9</button>
-            <button onclick="appendValue('/')">/</button>
-
-            <button onclick="appendValue('4')">4</button>
-            <button onclick="appendValue('5')">5</button>
-            <button onclick="appendValue('6')">6</button>
-            <button onclick="appendValue('*')">*</button>
-
-            <button onclick="appendValue('1')">1</button>
-            <button onclick="appendValue('2')">2</button>
-            <button onclick="appendValue('3')">3</button>
-            <button onclick="appendValue('-')">-</button>
-
-            <button onclick="appendValue('0')">0</button>
-            <button onclick="appendValue('.')">.</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="appendValue('+')">+</button>
-
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">X</button>
-
-        </div>
-    </div>-->
-
-    <div class="feature-tabs">
-        <button onclick="switchFeature('calculator')"><i class="fa-solid fa-calculator"></i></button>
-        <button onclick="switchFeature('currency')"><i class="fa-solid fa-coins"></i></button>
-        <button onclick="switchFeature('unit')"><i class="fa-brands fa-gg"></i></button>
-        <button onclick="switchFeature('stock')"><i class="fa-solid fa-money-bill-trend-up"></i></button>
-        <button onclick="switchFeature('crypto')"><i class="fa-brands fa-bitcoin"></i></button>
-    </div>
-      
       <div id="feature-container">
         <!-- Default calculator will load here -->
         <div id="calculator" class="feature active">
-          <input type="text" id="display" disabled />
+            <div id="result-container">
+                <input type="text" id="display" disabled placeholder="Add some digits"/>
+                <p id="result-in-words"></p>
+            </div>
+            
           <div class="buttons">
             <!-- Buttons for calculator -->
-            <button onclick="appendValue('7')">7</button>
-            <button onclick="appendValue('8')">8</button>
-            <button onclick="appendValue('9')">9</button>
-            <button onclick="appendValue('/')">/</button>
-            <button onclick="appendValue('4')">4</button>
-            <button onclick="appendValue('5')">5</button>
-            <button onclick="appendValue('6')">6</button>
-            <button onclick="appendValue('*')">*</button>
-            <button onclick="appendValue('1')">1</button>
-            <button onclick="appendValue('2')">2</button>
-            <button onclick="appendValue('3')">3</button>
-            <button onclick="appendValue('-')">-</button>
-            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('7')"><i class="fa-solid fa-7"></i></button>
+            <button onclick="appendValue('8')"><i class="fa-solid fa-8"></i></button>
+            <button onclick="appendValue('9')"><i class="fa-solid fa-9"></i></button>
+            <button onclick="appendValue('/')" style="background: rgb(0, 102, 255);"><i class="fa-solid fa-divide"></i></button>
+            <button onclick="appendValue('4')"><i class="fa-solid fa-4"></i></button>
+            <button onclick="appendValue('5')"><i class="fa-solid fa-5"></i></button>
+            <button onclick="appendValue('6')"><i class="fa-solid fa-6"></i></button>
+            <button onclick="appendValue('*')" style="background: orange;"><i class="fa-solid fa-xmark"></i></button>
+            <button onclick="appendValue('1')"><i class="fa-solid fa-1"></i></button>
+            <button onclick="appendValue('2')"><i class="fa-solid fa-2"></i></button>
+            <button onclick="appendValue('3')"><i class="fa-solid fa-3"></i></button>
+            <button onclick="appendValue('-')" style="background: red;"><i class="fa-solid fa-minus"></i></button>
+            <button onclick="appendValue('0')"><i class="fa-solid fa-0"></i></button>
             <button onclick="appendValue('.')">.</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="appendValue('+')">+</button>
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">DEL</button>
+            <button onclick="calculate()" style="background: green;"><i class="fa-solid fa-equals"></i></button>
+            <button onclick="appendValue('+')" style="background: rgb(0, 102, 255);"><i class="fa-solid fa-plus"></i></button>
+            <button onclick="clearDisplay()"><i class="fa-solid fa-c"></i></button>
+            <button onclick="deleteLast()"  style="background: red;"><i class="fa-solid fa-delete-left"></i></button>
+            <a href="crypto.html"><button style="background: rgb(255, 115, 0);"><i class="fa-brands fa-bitcoin"></i></button></a>
           </div>
         </div>
-      
-        <!-- Placeholder for other features -->
-        <div id="currency" class="feature">
-          <h2>Currency Converter</h2>
-          <input type="number" id="currency-amount" placeholder="Enter amount" />
-          <select id="currency-from"></select>
-          <select id="currency-to"></select>
-          <button onclick="convertCurrency()">Convert</button>
-          <p id="currency-result"></p>
+
+        <!--Placeholder for other features-->
+        <!--Currency Converter-->
+        <div id="currency" class="feature converter">
+            <h2><i class="fa-solid fa-coins"></i> Currency Conversion</h2>
+            <div class="form-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label for="fromCurrency">From:</label>
+                <select id="fromCurrency"></select>
+            </div>
+            <div class="form-group">
+                <label for="toCurrency">To:</label>
+                <select id="toCurrency"></select>
+            </div>
+            <button id="convertButton"><i class="fa-solid fa-coins"></i> Convert</button>
+            <div class="result" id="result"></div>
         </div>
-      
-        <div id="unit" class="feature">
+
+        <!--Unit Converter-->
+        <div id="unit" class="feature converter">
           <h2>Unit Converter</h2>
           <input type="number" id="unit-value" placeholder="Enter value" />
           <select id="unit-type">
@@ -95,29 +74,223 @@
           <p id="unit-result"></p>
         </div>
       
-        <div id="stock" class="feature">
+        <!--Stock Price-->
+        <div id="stock" class="feature converter">
           <h2>Stock Calculator</h2>
           <input type="text" id="stock-symbol" placeholder="Enter stock symbol" />
           <button onclick="getStockPrice()">Get Price</button>
           <p id="stock-result"></p>
         </div>
       
-        <div id="crypto" class="feature">
-          <h2>Crypto Converter</h2>
-          <input type="number" id="crypto-amount" placeholder="Enter amount" />
-          <select id="crypto-from"></select>
-          <select id="crypto-to"></select>
-          <button onclick="convertCrypto()">Convert</button>
-          <p id="crypto-result"></p>
-        </div>
-      </div>
+        <!--Crypto Converter-->
+        <div id="crypto" class="feature converter">
+            <h2>Crypto Currency Conversion Tool</h2>
+            <input type="number" id="cryptoInput" placeholder="Enter amount">
+            <form>
+                <div class="form-group">
+                    <label for="cryptoSelect">Crypto:</label>
+                    <select id="cryptoSelect">
+                            <option>-select crypto-</option>
+                            <option value="bitcoin">Bitcoin (BTC)</option>
+                            <option value="binancecoin">Binance Coin (BNB)</option>
+                            <option value="ethereum">Ethereum (ETH)</option>
+                            <option value="dogecoin">Dogecoin (DOGE)</option>
+                            <option value="tether">Tether (USDT)</option>
+                            <option value="litecoin">Litecoin (LTC)</option>
+                            <option value="ripple">Ripple (XRP)</option>
+                            <option value="cardano">Cardano (ADA)</option>
+                            <option value="solana">Solana (SOL)</option>
+                            <option value="polygon">Polygon (MATIC)</option>
+                            <option value="polkadot">Polkadot (DOT)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fiatSelect">Fiat:</label>
+                    <select id="fiatSelect" class="form-control">
+                        <option>-select fiat-</option>
+                        <option value="aed">AED (United Arab Emirates Dirham)</option>
+                        <option value="afn">AFN (Afghan Afghani)</option>
+                        <option value="all">ALL (Albanian Lek)</option>
+                        <option value="amd">AMD (Armenian Dram)</option>
+                        <option value="ang">ANG (Netherlands Antillean Guilder)</option>
+                        <option value="aoa">AOA (Angolan Kwanza)</option>
+                        <option value="ars">ARS (Argentine Peso)</option>
+                        <option value="aud">AUD (Australian Dollar)</option>
+                        <option value="awg">AWG (Aruban Florin)</option>
+                        <option value="azn">AZN (Azerbaijani Manat)</option>
+                        <option value="bam">BAM (Bosnia-Herzegovina Convertible Mark)</option>
+                        <option value="bbd">BBD (Barbadian Dollar)</option>
+                        <option value="bdt">BDT (Bangladeshi Taka)</option>
+                        <option value="bgn">BGN (Bulgarian Lev)</option>
+                        <option value="bhd">BHD (Bahraini Dinar)</option>
+                        <option value="bif">BIF (Burundian Franc)</option>
+                        <option value="bmd">BMD (Bermudian Dollar)</option>
+                        <option value="bnd">BND (Brunei Dollar)</option>
+                        <option value="bob">BOB (Bolivian Boliviano)</option>
+                        <option value="brl">BRL (Brazilian Real)</option>
+                        <option value="bsd">BSD (Bahamian Dollar)</option>
+                        <option value="btn">BTN (Bhutanese Ngultrum)</option>
+                        <option value="bwp">BWP (Botswana Pula)</option>
+                        <option value="byn">BYN (Belarusian Ruble)</option>
+                        <option value="bzd">BZD (Belize Dollar)</option>
+                        <option value="cad">CAD (Canadian Dollar)</option>
+                        <option value="cdf">CDF (Congolese Franc)</option>
+                        <option value="chf">CHF (Swiss Franc)</option>
+                        <option value="clp">CLP (Chilean Peso)</option>
+                        <option value="cny">CNY (Chinese Yuan)</option>
+                        <option value="cop">COP (Colombian Peso)</option>
+                        <option value="crc">CRC (Costa Rican Colón)</option>
+                        <option value="cup">CUP (Cuban Peso)</option>
+                        <option value="cve">CVE (Cape Verdean Escudo)</option>
+                        <option value="czk">CZK (Czech Koruna)</option>
+                        <option value="djf">DJF (Djiboutian Franc)</option>
+                        <option value="dkk">DKK (Danish Krone)</option>
+                        <option value="dop">DOP (Dominican Peso)</option>
+                        <option value="dzd">DZD (Algerian Dinar)</option>
+                        <option value="egp">EGP (Egyptian Pound)</option>
+                        <option value="ern">ERN (Eritrean Nakfa)</option>
+                        <option value="etb">ETB (Ethiopian Birr)</option>
+                        <option value="eur">EUR (Euro)</option>
+                        <option value="fjd">FJD (Fijian Dollar)</option>
+                        <option value="fkp">FKP (Falkland Islands Pound)</option>
+                        <option value="gbp">GBP (British Pound)</option>
+                        <option value="gel">GEL (Georgian Lari)</option>
+                        <option value="ghs">GHS (Ghanaian Cedi)</option>
+                        <option value="gip">GIP (Gibraltar Pound)</option>
+                        <option value="gmd">GMD (Gambian Dalasi)</option>
+                        <option value="gnf">GNF (Guinean Franc)</option>
+                        <option value="gtq">GTQ (Guatemalan Quetzal)</option>
+                        <option value="gyd">GYD (Guyanese Dollar)</option>
+                        <option value="hkd">HKD (Hong Kong Dollar)</option>
+                        <option value="hnl">HNL (Honduran Lempira)</option>
+                        <option value="hrk">HRK (Croatian Kuna)</option>
+                        <option value="htg">HTG (Haitian Gourde)</option>
+                        <option value="huf">HUF (Hungarian Forint)</option>
+                        <option value="idr">IDR (Indonesian Rupiah)</option>
+                        <option value="ils">ILS (Israeli New Shekel)</option>
+                        <option value="inr">INR (Indian Rupee)</option>
+                        <option value="iqd">IQD (Iraqi Dinar)</option>
+                        <option value="irr">IRR (Iranian Rial)</option>
+                        <option value="isk">ISK (Icelandic Króna)</option>
+                        <option value="jmd">JMD (Jamaican Dollar)</option>
+                        <option value="jpy">JPY (Japanese Yen)</option>
+                        <option value="kes">KES (Kenyan Shilling)</option>
+                        <option value="kgs">KGS (Kyrgyzstani Som)</option>
+                        <option value="khr">KHR (Cambodian Riel)</option>
+                        <option value="kmf">KMF (Comorian Franc)</option>
+                        <option value="krw">KRW (South Korean Won)</option>
+                        <option value="kwd">KWD (Kuwaiti Dinar)</option>
+                        <option value="kyd">KYD (Cayman Islands Dollar)</option>
+                        <option value="kzt">KZT (Kazakhstani Tenge)</option>
+                        <option value="lak">LAK (Lao Kip)</option>
+                        <option value="lbp">LBP (Lebanese Pound)</option>
+                        <option value="lkr">LKR (Sri Lankan Rupee)</option>
+                        <option value="lrd">LRD (Liberian Dollar)</option>
+                        <option value="lsl">LSL (Lesotho Loti)</option>
+                        <option value="mad">MAD (Moroccan Dirham)</option>
+                        <option value="mdl">MDL (Moldovan Leu)</option>
+                        <option value="mga">MGA (Malagasy Ariary)</option>
+                        <option value="mkd">MKD (Macedonian Denar)</option>
+                        <option value="mmk">MMK (Myanmar Kyat)</option>
+                        <option value="mnt">MNT (Mongolian Tögrög)</option>
+                        <option value="mop">MOP (Macanese Pataca)</option>
+                        <option value="mru">MRU (Mauritanian Ouguiya)</option>
+                        <option value="mur">MUR (Mauritian Rupee)</option>
+                        <option value="mvr">MVR (Maldivian Rufiyaa)</option>
+                        <option value="mwk">MWK (Malawian Kwacha)</option>
+                        <option value="mxn">MXN (Mexican Peso)</option>
+                        <option value="myr">MYR (Malaysian Ringgit)</option>
+                        <option value="mzn">MZN (Mozambican Metical)</option>
+                        <option value="nad">NAD (Namibian Dollar)</option>
+                        <option value="ngn">NGN (Nigerian Naira)</option>
+                        <option value="nio">NIO (Nicaraguan Córdoba)</option>
+                        <option value="nok">NOK (Norwegian Krone)</option>
+                        <option value="npr">NPR (Nepalese Rupee)</option>
+                        <option value="nzd">NZD (New Zealand Dollar)</option>
+                        <option value="omr">OMR (Omani Rial)</option>
+                        <option value="pab">PAB (Panamanian Balboa)</option>
+                        <option value="pen">PEN (Peruvian Sol)</option>
+                        <option value="pgk">PGK (Papua New Guinean Kina)</option>
+                        <option value="php">PHP (Philippine Peso)</option>
+                        <option value="pkr">PKR (Pakistani Rupee)</option>
+                        <option value="pln">PLN (Polish Złoty)</option>
+                        <option value="pyg">PYG (Paraguayan Guaraní)</option>
+                        <option value="qar">QAR (Qatari Riyal)</option>
+                        <option value="ron">RON (Romanian Leu)</option>
+                        <option value="rsd">RSD (Serbian Dinar)</option>
+                        <option value="rub">RUB (Russian Ruble)</option>
+                        <option value="rwf">RWF (Rwandan Franc)</option>
+                        <option value="sar">SAR (Saudi Riyal)</option>
+                        <option value="sbd">SBD (Solomon Islands Dollar)</option>
+                        <option value="scr">SCR (Seychellois Rupee)</option>
+                        <option value="sdg">SDG (Sudanese Pound)</option>
+                        <option value="sek">SEK (Swedish Krona)</option>
+                        <option value="sgd">SGD (Singapore Dollar)</option>
+                        <option value="shp">SHP (Saint Helena Pound)</option>
+                        <option value="sll">SLL (Sierra Leonean Leone)</option>
+                        <option value="sos">SOS (Somali Shilling)</option>
+                        <option value="srd">SRD (Surinamese Dollar)</option>
+                        <option value="ssp">SSP (South Sudanese Pound)</option>
+                        <option value="std">STD (São Tomé and Príncipe Dobra)</option>
+                        <option value="svc">SVC (Salvadoran Colón)</option>
+                        <option value="syp">SYP (Syrian Pound)</option>
+                        <option value="szl">SZL (Eswatini Lilangeni)</option>
+                        <option value="thb">THB (Thai Baht)</option>
+                        <option value="tjs">TJS (Tajikistani Somoni)</option>
+                        <option value="tmt">TMT (Turkmenistani Manat)</option>
+                        <option value="tnd">TND (Tunisian Dinar)</option>
+                        <option value="top">TOP (Tongan Paʻanga)</option>
+                        <option value="try">TRY (Turkish Lira)</option>
+                        <option value="ttd">TTD (Trinidad and Tobago Dollar)</option>
+                        <option value="twd">TWD (New Taiwan Dollar)</option>
+                        <option value="tzs">TZS (Tanzanian Shilling)</option>
+                        <option value="uah">UAH (Ukrainian Hryvnia)</option>
+                        <option value="ugx">UGX (Ugandan Shilling)</option>
+                        <option value="usd">USD (United States Dollar)</option>
+                        <option value="uyu">UYU (Uruguayan Peso)</option>
+                        <option value="uzs">UZS (Uzbekistani Som)</option>
+                        <option value="ves">VES (Venezuelan Bolívar)</option>
+                        <option value="vnd">VND (Vietnamese Đồng)</option>
+                        <option value="vuv">VUV (Vanuatu Vatu)</option>
+                        <option value="wst">WST (Samoan Tālā)</option>
+                        <option value="xaf">XAF (Central African CFA Franc)</option>
+                        <option value="xcd">XCD (Eastern Caribbean Dollar)</option>
+                        <option value="xof">XOF (West African CFA Franc)</option>
+                        <option value="xpf">XPF (CFP Franc)</option>
+                        <option value="yer">YER (Yemeni Rial)</option>
+                        <option value="zar">ZAR (South African Rand)</option>
+                        <option value="zmw">ZMW (Zambian Kwacha)</option>
+                        <option value="zwl">ZWL (Zimbabwean Dollar)</option>
+                    </select>                      
+                </div>
+            </form>
+            <button onclick="convertCrypto()">Convert</button>
 
-      <div id="install-banner" style="display: none; text-align: center; padding: 10px; background: #007bff; color: white;">
-        <p>Install this app for easy access!</p>
-        <button id="install-button" style="padding: 10px 20px; background: #0056b3; color: white; border: none; border-radius: 5px; cursor: pointer;">
-          Install
-        </button>
-      </div>
+            <div class="result mt-3" style="display: none;">
+                <p id="conversionValue"></p>
+                <h2 id="conversionResult"></h2>
+            </div>
+        </div>
+
+        <!--Bottom/Side Navigation-->
+        <div class="bottom-nav">
+          <button onclick="switchFeature('calculator')"><i class="fa-solid fa-calculator"></i></button>
+          <button onclick="switchFeature('currency')"><i class="fa-solid fa-coins"></i></button>
+          <button onclick="switchFeature('unit')"><i class="fa-brands fa-gg"></i></button>
+          <button onclick="switchFeature('stock')"><i class="fa-solid fa-money-bill-trend-up"></i></button>
+          <button onclick="switchFeature('crypto')"><i class="fa-brands fa-bitcoin"></i></button>
+        </div>
+    </div>
+
+    <!--Install Banner for PWA Feature-->
+    <div id="install-banner">
+       <!-- <p>Install this app for easy access!</p>-->
+        <button id="install-button"> Install </button>
+    </div>
+
+    <style>
+        
+    </style>
 
     <script src="app.js"></script>
 </body>
