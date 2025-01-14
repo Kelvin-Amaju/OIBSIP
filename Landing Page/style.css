@@ -179,7 +179,7 @@
   /* Hero Section */
   .hero {
     position: relative;
-    background: url('/img/hero/hero.jpg');
+    background: url('img/hero/hero.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
