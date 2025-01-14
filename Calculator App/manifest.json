@@ -1,5 +1,5 @@
 {
-    "name": "Advanced Calculator",
+    "name": "Financial Calculator",
     "short_name": "Calculator",
     "start_url": "/",
     "display": "standalone",
@@ -17,4 +17,4 @@
         "type": "image/png"
       }
     ]
-  }
+}

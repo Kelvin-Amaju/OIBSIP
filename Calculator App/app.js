@@ -11,7 +11,7 @@ function calculate() {
       const result = eval(display.value); // Perform the calculation
       display.value = result; // Show numeric result
   
-      // Convert the result to words and update the paragraph
+      // Convert the result to words
       resultInWords.textContent = numberToWords(result);
     } catch (error) {
       alert('Invalid calculation');
@@ -19,7 +19,7 @@ function calculate() {
     }
   }
   
-  function clearDisplay() { //Remove the result
+function clearDisplay() { //Remove the result
     document.getElementById('display').value = '';
     document.getElementById('result-in-words').textContent = '';
 }
@@ -29,35 +29,35 @@ function deleteLast() {
     display.value = display.value.slice(0, -1);
 }
 
-function switchFeature(feature) { //Switch between tabs
+function switchFeature(feature) { //Switch tabs
     document.querySelectorAll('.feature').forEach(el => el.classList.remove('active'));
     document.getElementById(feature).classList.add('active');
-  }
+}
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const amountInput = document.getElementById('amount');
-    const fromCurrency = document.getElementById('fromCurrency');
-    const toCurrency = document.getElementById('toCurrency');
-    const resultDiv = document.getElementById('result');
-    const convertButton = document.getElementById('convertButton');
+document.addEventListener("DOMContentLoaded", function() {
+  const amountInput = document.getElementById('amount');
+  const fromCurrency = document.getElementById('fromCurrency');
+  const toCurrency = document.getElementById('toCurrency');
+  const resultDiv = document.getElementById('result');
+  const convertButton = document.getElementById('convertButton');
 
-    // Fetch and populate currency options
-    fetch('https://api.exchangerate-api.com/v4/latest/USD')
-        .then(response => response.json())
-        .then(data => {
-            const currencies = Object.keys(data.rates);
-            currencies.forEach(currency => {
-                const option1 = document.createElement('option');
-                option1.value = currency;
-                option1.text = currency;
-                fromCurrency.appendChild(option1);
+  // Fetch and populate currency options
+  fetch('https://api.exchangerate-api.com/v4/latest/USD')
+    .then(response => response.json())
+    .then(data => {
+      const currencies = Object.keys(data.rates);
+      currencies.forEach(currency => {
+        const option1 = document.createElement('option');
+        option1.value = currency;
+        option1.text = currency;
+        fromCurrency.appendChild(option1);
 
-                const option2 = document.createElement('option');
-                option2.value = currency;
-                option2.text = currency;
-                toCurrency.appendChild(option2);
-            });
-        });
+          const option2 = document.createElement('option');
+          option2.value = currency;
+          option2.text = currency;
+          toCurrency.appendChild(option2);
+      });
+    });
 
     // Perform currency conversion
     convertButton.addEventListener('click', () => {
@@ -84,21 +84,21 @@ function switchFeature(feature) { //Switch between tabs
     });
 
     //perform unit conversion
-  function convertUnit() {
-    const value = parseFloat(document.getElementById('unit-value').value);
-    const type = document.getElementById('unit-type').value;
-    let result = '';
+function convertUnit() {
+  const value = parseFloat(document.getElementById('unit-value').value);
+  const type = document.getElementById('unit-type').value;
+  let result = '';
   
-    if (type === 'length') {
-      result = `${value} meters = ${value * 3.281} feet`;
-    } else if (type === 'weight') {
-      result = `${value} kilograms = ${value * 2.205} pounds`;
-    } else if (type === 'temperature') {
-      result = `${value}°C = ${(value * 9/5) + 32}°F`;
-    }
-  
-    document.getElementById('unit-result').innerText = result;
+  if (type === 'length') {
+    result = `${value} meters = ${value * 3.281} feet`;
+  } else if (type === 'weight') {
+    result = `${value} kilograms = ${value * 2.205} pounds`;
+  } else if (type === 'temperature') {
+    result = `${value}°C = ${(value * 9/5) + 32}°F`;
   }
+  
+  document.getElementById('unit-result').innerText = result;
+}
 
 
   //stock price

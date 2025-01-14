@@ -1,9 +1,10 @@
 const CACHE_NAME = 'calculator-cache-v1';
 const urlsToCache = [
 '/',
-'index.html',
-'style.css',
-'app.js'
+'/index.html',
+'/crypto.html',
+'/style.css',
+'/app.js'
 ];
 
 self.addEventListener('install', event => {
