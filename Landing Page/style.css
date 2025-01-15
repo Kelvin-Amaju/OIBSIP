@@ -28,7 +28,7 @@
     font-family: "Poppins", sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
-    color: #e63946;
+    color: #5339e6;
   }
 
   .nav-links {
@@ -47,7 +47,7 @@
   }
 
   .nav-links a:hover {
-    color: #e63946;
+    color: #8439e6;
   }
 
   nav .account {
@@ -179,7 +179,7 @@
   /* Hero Section */
   .hero {
     position: relative;
-    background: url('img/hero/hero.jpg');
+    background: url('img/hero/hero-2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -231,7 +231,7 @@
     color: #fef9e7;
     padding: 0.75rem 1.5rem;
     border-radius: 15px;
-    background-color: #e63946;
+    background-color: #5339e6;/*e63946*/
     text-decoration: none;
     z-index: 2;
     position: relative;
@@ -253,27 +253,29 @@
   /* General Styles */
   
   /* Card Section */
+
   .card-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
   }
   
- 
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
   .card {
-    background: rgba(201, 12, 12, 0.048); 
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(20px);  
-    border: 5px solid rgba(255, 255, 255, 0.2);
+    width: 300px;
+    transition: transform 0.3s;
   }
-  
+
   .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -281,8 +283,23 @@
   
   .card-image {
     width: 100%;
-    height: 150px;
+    height: 200px;
     object-fit: cover;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-content h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  .card-content p {
+    margin: 0;
+    color: #666;
   }
   
   .card-title {

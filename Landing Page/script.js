@@ -1,4 +1,4 @@
-//Javascript for Mobile Menu Toggle
+// Mobile Menu Toggle
 const menuToggler = document.getElementById('menu-toggler');
 const mobileMenu = document.getElementById('mobile-menu');
 
